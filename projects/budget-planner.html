@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Budget Planner | Vinay Mathew Varghese</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Vinay</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#education">Education</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#connect">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="project-detail-hero">
+        <div class="container">
+            <a href="../index.html#projects" class="project-back">← Back to Projects</a>
+            <div class="project-detail-label">Personal Finance / Full-Stack</div>
+            <h1 class="project-detail-title">Interactive Budget Planner</h1>
+            <p class="project-detail-subtitle">A private, local-first budgeting app that parses bank statement exports, learns merchant categories over time, and visualises exactly where money is going each month, with none of your data leaving your machine.</p>
+            <div class="project-detail-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Type</span>
+                    <span class="project-meta-value">Local Web App</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Stack</span>
+                    <div class="project-meta-tags">
+                        <span class="stack-tag backend">Python</span>
+                        <span class="stack-tag backend">PDF Parsing</span>
+                        <span class="stack-tag backend">HTML</span>
+                        <span class="stack-tag backend">CSS</span>
+                        <span class="stack-tag backend">JS</span>
+                    </div>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Storage</span>
+                    <span class="project-meta-value">Local JSON</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">The Problem</span>
+            <h2 class="section-heading">Ownership over your own financial data</h2>
+            <p>Most budgeting apps either demand a recurring subscription, hand your bank data to a third party, or make you manually re-categorize the same recurring transactions every month. I wanted a private, local-first tool that ingests my own bank statement exports, learns my merchant categories over time so it gets less manual with use, and gives me an honest visual picture of where money actually goes each month.</p>
+        </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">The Approach</span>
+            <h2 class="section-heading">Parse, learn, visualise</h2>
+            <p><strong>Statement parsing.</strong> Handles both PDF and CSV bank statement exports, tuned to Australian bank layouts (Commonwealth Bank tested end to end). The parser understands signed Amount columns rather than only Debit/Credit layouts, and correctly handles edge cases like leading-minus dollar formatting ("-$6.32") that a naive regex would drop.</p>
+            <p><strong>Merchant memory.</strong> Transactions matching a known merchant get their category applied automatically. Unknown merchants land in a Review queue where you pick a category once, and that mapping is remembered permanently. The app gets less manual with every statement you upload, not more.</p>
+            <p><strong>Duplicate detection.</strong> Transactions are hashed by date, description, and amount, so re-uploading an overlapping statement doesn't create duplicate rows.</p>
+            <p><strong>Dashboard.</strong> A category donut with click-to-focus cross-filtering (click a slice and every other chart narrows to that category), a monthly Expenditure vs Income line chart, a top-merchants view for spotting the biggest bleeders, and month/year dropdowns populated from your actual uploaded data.</p>
+            <p><strong>Two-scope reset.</strong> You can wipe transactions while preserving your learned category mappings, or wipe everything. Both are behind an explicit confirmation dialog.</p>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">Highlights</span>
+            <h2 class="section-heading">Design decisions worth calling out</h2>
+            <ul>
+                <li><strong>Zero third-party data sharing.</strong> Every transaction stays on your machine, in a plain-JSON store you can inspect or export at any time.</li>
+                <li><strong>Merchant memory that compounds.</strong> The categorisation quality improves every month rather than staying flat, which is the whole point of a personal tool.</li>
+                <li><strong>Cross-filtering that actually feels connected.</strong> Clicking a pie slice narrows every chart on the page, so drilling into a category is one click, not a filter dropdown per chart.</li>
+                <li><strong>Self-contained deployment.</strong> Ships as a single folder with a <code>run.sh</code> that sets itself up on first launch and opens in the browser. No account required, no cloud required.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">Screenshots</span>
+            <h2 class="section-heading">The app in use</h2>
+            <div class="screenshot-gallery">
+                <div class="screenshot">
+                    <img src="../images/budget-planner/dashboard.png" alt="Budget Planner dashboard overview" loading="lazy" onerror="this.parentElement.remove()">
+                    <div class="screenshot-caption">KPIs, category donut, and expenditure vs income line chart</div>
+                </div>
+                <div class="screenshot">
+                    <img src="../images/budget-planner/category-focus.png" alt="Category focus filtering" loading="lazy" onerror="this.parentElement.remove()">
+                    <div class="screenshot-caption">Clicking a pie slice cross-filters every other chart on the page</div>
+                </div>
+                <div class="screenshot">
+                    <img src="../images/budget-planner/review-queue.png" alt="Merchant review queue" loading="lazy" onerror="this.parentElement.remove()">
+                    <div class="screenshot-caption">Uncategorised merchants land here; one-time category picks are remembered forever</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Vinay Mathew Varghese. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

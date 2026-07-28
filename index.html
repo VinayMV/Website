@@ -24,7 +24,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#awards">Awards</a></li>
                 <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#connect">Connect</a></li>
             </ul>
         </div>
     </nav>
@@ -33,11 +33,11 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-label">Data Science Graduate Student</div>
+                <div class="hero-label">Data Science Graduate</div>
                 <h1>Vinay Mathew<br>Varghese</h1>
-                <p class="hero-subtitle">Transforming complex data into actionable insights through machine learning, statistical modelling, and data-driven decision-making. <br> Currently pursuing Master's degree in Data Science at Adelaide University, Australia.</p>
+                <p class="hero-subtitle">Transforming complex data into actionable insights through machine learning, statistical modelling, and data-driven decision-making. <br> Master of Data Science graduate from Adelaide University, Australia.</p>
                 <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#connect" class="btn btn-primary">Get In Touch</a>
                     <a href="#experience" class="btn btn-secondary">View Experience</a>
                 </div>
             </div>
@@ -53,13 +53,13 @@
             </div>
             <div class="about-content">
                 <div class="about-text reveal">
-                    <p>Analytical and results-driven data science graduate student with a strong foundation in data analysis, statistical modelling, and machine learning. Proficient in Python, R, SQL, and data visualisation, with a passion for transforming complex datasets into actionable business insights.</p>
+                    <p>Analytical and results-driven data science graduate with a strong foundation in data analysis, statistical modelling, and machine learning. Proficient in Python, R, SQL, and data visualisation, with a passion for transforming complex datasets into actionable business insights.</p>
                     <p>Worked at Informatica Inc., delivering enterprise data solutions for global clients across banking, insurance, and pharmaceutical sectors. Experienced in data workflows, quality management, governance, and client-facing technical engagement, with a proven ability to communicate effectively and meet timelines while coordinating with international stakeholders.</p>
-                    <p>Beyond technical expertise, I gained extensive leadership experience during my bachelor’s studies as Chairperson of the IEEE Computer Society Chapter, where I organized over 60 innovative events and was recognized on state level as Best Volunteer of the IEEE Computer Society.</p>
+                    <p>Beyond technical expertise, I gained extensive leadership experience during my bachelor’s studies as Chairperson of the IEEE Computer Society Chapter, where I organized over 60 innovative events, led the chapter to be recognised as Outstanding Student Branch of the Year, and was named Best Volunteer of the IEEE Computer Society at state level.</p>
                 </div>
                 <div class="stats reveal">
                     <div class="stat-card">
-                        <div class="stat-number">1.5+</div>
+                        <div class="stat-number">2</div>
                         <div class="stat-label">Years Professional Experience</div>
                     </div>
                     <div class="stat-card">
@@ -110,30 +110,55 @@
                 <div class="section-label">Projects I've built</div>
                 <h2>Projects</h2>
             </div>
-            <div class="project-featured reveal">
-                <div class="project-top">
-                    <div>
-                        <div class="project-title">CalmDown</div>
-                        <div class="project-subtitle">Stress Reduction Recommendation System</div>
+            <div class="projects-grid">
+                <a href="projects/crash-analysis.html" class="project-card reveal">
+                    <div class="project-card-label">Data Visualisation</div>
+                    <h3 class="project-card-title">SA Road Crash Analysis</h3>
+                    <p class="project-card-desc">Interactive Power BI dashboard over five years of South Australia road crash data, surfacing patterns by location, time, severity, and impairment across 63K incidents.</p>
+                    <div class="project-card-tags">
+                        <span class="stack-tag backend">Power BI</span>
+                        <span class="stack-tag backend">DAX</span>
+                        <span class="stack-tag backend">Power Query</span>
                     </div>
-                    <a href="https://github.com/VinayMV/Stress-Reduction-Recommendation-System" target="_blank" class="btn btn-secondary">View on GitHub →</a>
-                </div>
-                <p class="project-description">A questionnaire-based web application that analyses user stress levels through structured questions and delivers personalised stress reduction recommendations based on their stress level and specific stress conditions.</p>
-                <div class="project-finding">
-                    <span class="finding-label">📊 Key Finding</span>
-                    <p>Data analysis revealed the 18–30 age group experiences the highest stress frequency, particularly at medium and high PSS levels — directly informing the recommendation engine's prioritisation logic.</p>
-                </div>
-                <div class="project-stack">
-                    <span class="stack-label">Tech Stack</span>
-                    <div class="stack-tags">
+                    <span class="project-card-cta">View project →</span>
+                </a>
+
+                <a href="projects/cookrag.html" class="project-card reveal">
+                    <div class="project-card-label">RAG / LLM</div>
+                    <h3 class="project-card-title">cookrag</h3>
+                    <p class="project-card-desc">A lightweight retrieval-augmented microservice that answers cooking questions grounded in a curated corpus, with per-request latency metrics baked in.</p>
+                    <div class="project-card-tags">
+                        <span class="stack-tag backend">FastAPI</span>
+                        <span class="stack-tag backend">Gemini</span>
+                        <span class="stack-tag backend">numpy</span>
+                    </div>
+                    <span class="project-card-cta">View project →</span>
+                </a>
+
+                <a href="projects/budget-planner.html" class="project-card reveal">
+                    <div class="project-card-label">Personal Finance</div>
+                    <h3 class="project-card-title">Interactive Budget Planner</h3>
+                    <p class="project-card-desc">A private, local-first budgeting app that parses bank statements, learns merchant categories over time, and visualises where money actually goes each month.</p>
+                    <div class="project-card-tags">
                         <span class="stack-tag backend">Python</span>
-                        <span class="stack-tag backend">Machine Learning</span>
+                        <span class="stack-tag backend">HTML</span>
+                        <span class="stack-tag backend">CSS</span>
+                        <span class="stack-tag backend">JS</span>
+                    </div>
+                    <span class="project-card-cta">View project →</span>
+                </a>
+
+                <a href="https://github.com/VinayMV/Stress-Reduction-Recommendation-System" target="_blank" class="project-card reveal">
+                    <div class="project-card-label">Machine Learning</div>
+                    <h3 class="project-card-title">CalmDown</h3>
+                    <p class="project-card-desc">A questionnaire-based web app that analyses user stress levels and delivers personalised stress reduction recommendations, driven by a Graph Neural Network recommendation engine.</p>
+                    <div class="project-card-tags">
+                        <span class="stack-tag backend">Python</span>
                         <span class="stack-tag backend">GNN</span>
                         <span class="stack-tag backend">Flask</span>
-                        <span class="stack-tag frontend">HTML</span>
-                        <span class="stack-tag frontend">CSS</span>
                     </div>
-                </div>
+                    <span class="project-card-cta">View on GitHub →</span>
+                </a>
             </div>
         </div>
     </section>
@@ -152,9 +177,9 @@
                             <div class="experience-title">Master of Data Science</div>
                             <div class="experience-company">Adelaide University, Australia</div>
                         </div>
-                        <div class="experience-date">Sep 2024 - Present</div>
+                        <div class="experience-date">Sep 2024 - Jul 2026</div>
                     </div>
-                        <p class="experience-description">Pursuing a Master of Data Science with comprehensive training in machine learning, deep learning, probability and statistics, decision science, and data analytics. Coursework includes Deep Learning Fundamentals, Machine Learning Tools, Data Science, Probability & Statistics, Data Taming, and Decision Science, along with studies in cybersecurity, ethics in computing, and mathematical foundations for data science. Developed strong analytical and problem-solving skills for real-world data applications, with exposure to advanced AI techniques and responsible computing practices.</p>                
+                        <p class="experience-description">Completed a Master of Data Science with comprehensive training in machine learning, deep learning, probability and statistics, decision science, and data analytics. Coursework included Deep Learning Fundamentals, Machine Learning Tools, Data Science, Probability & Statistics, Data Taming, and Decision Science, along with studies in cybersecurity, ethics in computing, and mathematical foundations for data science. Developed strong analytical and problem-solving skills for real-world data applications, with exposure to advanced AI techniques and responsible computing practices.</p>
                     </div>
 
                 <div class="experience-card reveal">
@@ -272,7 +297,7 @@
                                 Rajagiri School of Engineering and Technology (RSET), Kerala, India.
                             </div>
                         </div>
-                        <!-- <div class="experience-date">2018 - 2022</div> -->
+                        <a href="https://www.rajagiritech.ac.in/home/cse/alumni.asp#:~:text=Mr.Vinay%20Mathew%20Varghese" target="_blank" rel="noopener" class="external-link">View listing ↗</a>
                     </div>
                     <ul class="experience-points">
                         <li>Recognized as a Distinguished Alumni for outstanding professional achievements, leadership, and contributions to the field of computer science</li>
@@ -375,12 +400,12 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+    <!-- Connect Section -->
+    <section id="connect">
         <div class="container">
             <div class="section-header reveal">
-                <div class="section-label">Let's Connect</div>
-                <h2>Contact</h2>
+                <div class="section-label">Get In Touch</div>
+                <h2>Connect</h2>
             </div>
             <div class="contact-content">
                 <p class="contact-text reveal">

@@ -33,3 +33,22 @@ function limitWordsAndChars(field, maxWords, maxChars) {
 
 window.addEventListener('scroll', reveal);
 reveal(); // Initial check
+
+// Auto-hide project detail sections whose media isn't ready yet.
+// Each <img> in .screenshot has onerror that removes its wrapper.
+// After all images have resolved, empty galleries or empty embed containers
+// cause their whole enclosing <section class="project-section"> to be hidden.
+window.addEventListener('load', function () {
+    document.querySelectorAll('.screenshot-gallery').forEach(function (gallery) {
+        if (gallery.children.length === 0) {
+            var section = gallery.closest('.project-section');
+            if (section) section.style.display = 'none';
+        }
+    });
+    document.querySelectorAll('.embed-container').forEach(function (container) {
+        if (!container.querySelector('iframe')) {
+            var section = container.closest('.project-section');
+            if (section) section.style.display = 'none';
+        }
+    });
+});

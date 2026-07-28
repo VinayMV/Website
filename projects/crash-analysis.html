@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SA Road Crash Analysis | Vinay Mathew Varghese</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Vinay</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#education">Education</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#connect">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="project-detail-hero">
+        <div class="container">
+            <a href="../index.html#projects" class="project-back">← Back to Projects</a>
+            <div class="project-detail-label">Data Visualisation / Power BI</div>
+            <h1 class="project-detail-title">SA Road Crash Analysis</h1>
+            <p class="project-detail-subtitle">An interactive Power BI dashboard over five years (2020 to 2024) of South Australia road crash data, joining four related datasets into a single model and letting users explore patterns by location, time, severity, and impairment.</p>
+            <div class="project-detail-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Type</span>
+                    <span class="project-meta-value">Analytics Dashboard</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Stack</span>
+                    <div class="project-meta-tags">
+                        <span class="stack-tag backend">Power BI</span>
+                        <span class="stack-tag backend">DAX</span>
+                        <span class="stack-tag backend">Power Query</span>
+                    </div>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Records</span>
+                    <span class="project-meta-value">63K crashes, 24K casualties, 135K units</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Data Source</span>
+                    <span class="project-meta-value"><a href="https://data.sa.gov.au" target="_blank">DATA.SA (SA Government) ↗</a></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">The Problem</span>
+            <h2 class="section-heading">Public data that no one can actually use</h2>
+            <p>South Australia's road crash data (via DATA.SA) is public but sits in large, disconnected flat files, with no easy way to see where, when, or under what conditions serious and fatal crashes cluster. I wanted to turn five years of incident-level records into an explorable dashboard that surfaces those patterns, by location, time of day, severity, and impairment, in a way a policymaker or analyst could actually act on.</p>
+        </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">The Approach</span>
+            <h2 class="section-heading">Model once, slice everywhere</h2>
+            <p><strong>Data model.</strong> Four tables joined on the crash report ID: <em>Crash</em> as the fact table, <em>Casualty</em> and <em>Units</em> as detail tables (one row per injured person and per involved vehicle), and <em>LatLon</em> as a lookup that carries the coordinates for the map. That structure gives one point of truth per crash while preserving per-person and per-vehicle detail without duplication.</p>
+            <p><strong>DAX measures.</strong> Total Crashes, Total Fatalities, Total Casualties, Total Serious Injuries, Impaired Crashes (crashes flagged with DUI or drug involvement), and Killed or Seriously Injured (KSI = fatal + serious). Every KPI on the report is a measure, not a static number, so filters propagate everywhere consistently.</p>
+            <p><strong>Slicers and cross-filtering.</strong> Year range, severity level, and Local Government Area (LGA), all cross-filter every visual simultaneously.</p>
+            <p><strong>Visuals.</strong> A scatter map of crash locations coloured by severity (drawn from the LatLon table), KPI cards for the headline numbers, a year-over-year serious injury and fatality bar chart, and a casualties-by-hour line chart that surfaces the daily peak.</p>
+        </div>
+    </section>
+
+    <!-- Key insights -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">Key Insights</span>
+            <h2 class="section-heading">What the data actually says</h2>
+            <ul>
+                <li><strong>63,239 crashes</strong> across 2020 to 2024, with <strong>469 fatalities</strong> and <strong>4,296 people killed or seriously injured (KSI)</strong>.</li>
+                <li><strong>3,311 crashes</strong> (5.2%) involved impaired driving (DUI or drug involvement flagged).</li>
+                <li>Peak crash hours are the afternoon commute, <strong>3pm to 5pm</strong>, with a secondary morning peak at 8am.</li>
+                <li>Four LGAs account for roughly <strong>a third of all crashes</strong>: Port Adelaide Enfield, Salisbury, Charles Sturt, and Onkaparinga.</li>
+                <li><strong>76% of crashes happen in daylight</strong>, 90% on sealed roads, and 91% in non-raining conditions. Most crashes are ordinary conditions plus driver behaviour, not weather.</li>
+                <li><strong>60 km/h zones</strong> account for the plurality of crashes (nearly half), and <strong>66% of crashes happen at sites with no traffic control</strong> in place.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Live dashboard embed -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">Live Dashboard</span>
+            <h2 class="section-heading">Interactive report</h2>
+            <p class="embed-note">Published via Power BI's "Publish to Web" (free tier). If the embed doesn't load, screenshots of the same report follow below.</p>
+            <div class="embed-container">
+                <!--
+                    To enable the live embed:
+                    1. In Power BI Service (My Workspace), open the report > File > Embed report > Publish to web (public).
+                    2. Paste the <iframe> snippet Power BI gives you inside this <div>.
+                       Keep width="100%" and height="100%" so it fills the aspect-ratio container.
+                    Until an <iframe> is pasted here, script.js hides this whole section from the page.
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">Screenshots</span>
+            <h2 class="section-heading">Report at a glance</h2>
+            <div class="screenshot-gallery">
+                <div class="screenshot">
+                    <img src="../images/crash-analysis/dashboard-overview.png" alt="Dashboard overview" loading="lazy" onerror="this.parentElement.remove()">
+                    <div class="screenshot-caption">KPIs, slicers, casualties-by-hour, year-over-year injuries, and the severity-coloured crash map</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Vinay Mathew Varghese. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
