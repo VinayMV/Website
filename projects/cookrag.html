@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookrag | Vinay Mathew Varghese</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="grain-overlay"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Vinay</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#education">Education</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#connect">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="project-detail-hero">
+        <div class="container">
+            <a href="../index.html#projects" class="project-back">← Back to Projects</a>
+            <div class="project-detail-label">RAG / LLM Microservice</div>
+            <h1 class="project-detail-title">cookrag</h1>
+            <p class="project-detail-subtitle">A lightweight retrieval-augmented microservice that answers cooking questions grounded in a curated corpus of recipe and technique notes, with per-request latency tracked end to end.</p>
+            <div class="project-detail-meta">
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Type</span>
+                    <span class="project-meta-value">Backend Service</span>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Stack</span>
+                    <div class="project-meta-tags">
+                        <span class="stack-tag backend">Python</span>
+                        <span class="stack-tag backend">FastAPI</span>
+                        <span class="stack-tag backend">Gemini</span>
+                        <span class="stack-tag backend">numpy</span>
+                    </div>
+                </div>
+                <div class="project-meta-item">
+                    <span class="project-meta-label">Repository</span>
+                    <span class="project-meta-value"><a href="https://github.com/VinayMV/cookrag" target="_blank">github.com/VinayMV/cookrag ↗</a></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">The Problem</span>
+            <h2 class="section-heading">Grounded answers over blog spam</h2>
+            <p>Finding a trustworthy answer to a specific cooking or technique question usually means wading through SEO-bloated blog posts and ads, or asking a general-purpose chatbot that may hallucinate a method. I wanted a small, fast retrieval-augmented system that answers cooking questions grounded directly in a curated set of recipe and technique notes, with real retrieval behind every answer, not just a model's guess, while keeping an eye on response latency since a cooking assistant needs to feel instant.</p>
+        </div>
+    </section>
+
+    <!-- Approach -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">The Approach</span>
+            <h2 class="section-heading">Small pieces, deliberately chosen</h2>
+            <p>The corpus, a set of recipe and technique notes, is chunked and embedded once using Google Gemini's embedding API. Vectors are held in a plain numpy array rather than a full vector database. For a small, static corpus this is faster to boot, easier to deploy, and one fewer moving part in the stack.</p>
+            <p>Each incoming query is embedded on the fly, cosine-scored against the stored vectors, and the top-k matching chunks are pulled as retrieval context. That context, together with the original query, is passed to Gemini's generation model, which produces an answer explicitly grounded in the retrieved passages. If the corpus doesn't contain a relevant answer, that shows up in the retrieval scores rather than as a made-up response.</p>
+            <p>FastAPI serves the endpoint. Every request logs total latency, retrieval latency, and generation latency separately, so it is obvious where any slowness lives. That made experimenting with retrieval depth and generation temperature much more grounded, tune a knob and see exactly which part of the pipeline moves.</p>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">Highlights</span>
+            <h2 class="section-heading">What makes it worth showing</h2>
+            <ul>
+                <li>Answers are traceable back to the retrieved chunks, avoiding the "chatbot made it up" concern that comes with generic LLM assistants.</li>
+                <li>Intentional minimalism: numpy over a full vector database, since the corpus is small. Keeps startup fast and deployment simple.</li>
+                <li>Latency metrics are baked into every response, not bolted on later. Tuning any knob gives visible, per-component feedback.</li>
+                <li>FastAPI's async endpoints make it straightforward to scale up when needed without changing the shape of the code.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="project-section">
+        <div class="container">
+            <span class="section-eyebrow">Screenshots</span>
+            <h2 class="section-heading">Endpoint in action</h2>
+            <div class="screenshot-gallery">
+                <div class="screenshot">
+                    <img src="../images/cookrag/architecture.png" alt="cookrag architecture diagram" loading="lazy" onerror="this.parentElement.remove()">
+                    <div class="screenshot-caption">Corpus, embeddings, retrieval, and generation flow</div>
+                </div>
+                <div class="screenshot">
+                    <img src="../images/cookrag/request-response.png" alt="Sample cookrag request and response" loading="lazy" onerror="this.parentElement.remove()">
+                    <div class="screenshot-caption">Query, retrieved context, generated answer, and latency breakdown</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Vinay Mathew Varghese. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
